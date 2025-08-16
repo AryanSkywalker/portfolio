@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+
+    <link rel='stylesheet' href='./Home.css'>
+    <link rel='stylesheet' href='./Projects.css'>
+    <link rel='icon' href='./BB-8.png' type='image/png' sizes='16x16'>
+
+    <title>Aryan Kumar Jha | Projects</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="./starwars-glyphicons/css/starwars-glyphicons.css">
+
+  </head>
+
+  <body>
+
+    <div class='topBar'>
+
+      <div class='userName clearfix'>
+
+        <p class='hoverUnderline'><a href='./Home.html'>aryanSkywalker</a></p>
+
+      </div>
+
+      <div style='display:flex; flex-direction:row-reverse; justify-content: space-evenly; width: 75%'>
+
+          <a class='comm' href='https://github.com/AryanSkywalker'>
+            <p class='hoverUnderline'>https://github.com/AryanSkywalker</p>
+            <img src='./Github Logo.png' alt='Github' class='icon'>
+          </a>
+
+          <a class='comm' href='https://www.instagram.com/thearyanskywalker/'>
+            <p class='hoverUnderline'>theAryanSkywalker</p>
+            <img src='./Instagram Logo.jpg' alt='Instagram' class='icon'>
+          </a>
+
+          <a class='comm safe' href='./Resume.pdf' download="The Chosen One">
+            <p class='hoverUnderline'>Resume</p>
+          </a>
+
+      </div>
+
+    </div>
+
+    <div class='navigator'>
+
+      <a href='#first'><span class='swg swg-decals-1 swg-2x'></span></a>
+      <a href='#second'><span class='swg swg-decals-1 swg-2x'></span></a>
+      <a href='#third'><span class='swg swg-decals-1 swg-2x'></span></a>
+      <a href='#four'><span class='swg swg-decals-1 swg-2x'></span></a>
+
+    </div>
+
+    <section id='first'>
+
+      <div class='project'>
+
+        <div class='project-content'>
+          <h1>Project Dia</h1>
+          <p><strong>Aim:</strong> To develop a pipeline to read and detect answers from an image</p>
+          <p><strong>Technology Used:</strong> Python, OpenCV2, Google Colaboratory, Pandas</p>
+          <p><strong>Accuracy:</strong> 96.33%</p>
+          <p>I had the idea of this project in my mind but couldn't really fathom how it can be implemented into code
+             much as less work for any realtime usecase. The variety in answer sheets was just too much and so I designed my
+             very own answer sheet sample that was curated to work for my pipeline and after weeks of brainstorming, the project
+             came along fine!</p>
+          <p>It employs rudimentary image manipulation to get a binary scan of the sheet after which we define regions and extract
+             our answers. The entire process is on display in my github repository if you wanna check it out.</p>
+        </div>
+
+        <img src='./Projects/Marked.png' alt='OMR Answer Sheet Checked Via Computers' style="height:30vw">
+
+      </div>
+
+    </section>
+
+    <section id='second' class='colortwo'>
+
+      <svg class="separator" xmlns="http://www.w3.org/2000/svg" width="100%" height="90" viewBox="0.1 0.3 200 19" preserveAspectRatio="none">
+          <g transform="translate(-0.21755166,-100.15454)">
+              <path style="fill:#5C95FF;" d="M 0.2688579,100.29477 H 200.98548 c 0,0 -99.37375,39.84098 -200.7166221,0 z" />
+          </g>
+      </svg>
+
+      <div class='project'>
+
+        <div class='project-content'>
+
+          <h1>Project Transliter</h1>
+
+            <p><strong>Aim:</strong> To develop an engine for transliteration from English to Hindi</p>
+            <p><strong>Technology Used:</strong> Python, OpenCV2, Google Colaboratory, Pandas, PyTorch, Encoder Decoder Models</p>
+            <p><strong>Accuracy:</strong> 87.66%</p>
+            <p><strong>Dataset Source:</strong> Wikidata.org</p>
+            <p>This was my first project for encoder decoder neural networks and was a lot of tedious work, though it paid off quite well.
+               Actually it was developed as a follow-along to a similar project that was demonstrated in my Deep Learning course. It took
+               a lot of brain hacking and taught me a lot. It works quite well though not at par with contemporary models as I don't
+               have access to that computational power [Or The Skill].</p>
+
+        </div>
+
+        <img src='./Projects/Transliterator.png' alt='Working Of The Project'>
+
+      </div>
+
+    </section>
+
+    <section id='third' class='colorone'>
+
+      <svg class="separator" xmlns="http://www.w3.org/2000/svg" width="100%" height="140" viewBox="0.5 0.2 176 30" preserveAspectRatio="none">
+          <g transform="translate(-13.668562,-111.38266)">
+              <path style="fill:#B9D2B1;" d="M 13.898015,111.51495 H 190.83044 v 26.19241 l -45.97036,-14.43255 -42.22858,7.48354 -45.970361,-14.96709 -31.003265,16.03617 z"/>
+          </g>
+      </svg>
+
+      <div class='project'>
+
+        <div class='project-content'>
+
+          <h1>Project Black Eye</h1>
+
+            <p><strong>Aim:</strong> Develop a neural netwrk to recognize custom gestures</p>
+            <p><strong>Technology Used:</strong> Python, OpenCV2, Google Colaboratory, Pandas, PyTorch, Convolution Neural Networks</p>
+            <p><strong>Accuracy:</strong> Dependent On Data [Remains High ~ 96%]</p>
+            <p><strong>Dataset Source:</strong> Self-engineered [Can also learn on custom dataset]</p>
+            <p>I developed this project first starting out with neural networks to get a feel for hyperparameter tuning and
+               how neural network architecture impacts training time. Though it was mere time-pass at first, I realized it could
+               be potentially be employed to engineer a visual messaging system [Maybe by contaminated patients or old-people] to
+               gesture simple commands and requests by hand signs like a fist or a two finger gesture. Though I haven't acted upon
+               this idea as the system needs much for sophistication and expertise beyond my own to achieve this.</p>
+            <p>I use the gesture messaging system to play different playlists!</p>
+
+        </div>
+
+        <img src='./Projects/Black Eye.png' alt='Working Of The Project'>
+
+      </div>
+
+    </section>
+
+    <section id='four' class='colortwo'>
+
+      <svg class="separator" width="100%" height="120" viewBox="0.1 0.1 180 40" preserveAspectRatio="none">
+          <g transform="translate(-18.298844,-77.973964)">
+              <path style="fill:#333831;" d="M 31.615583,86.351641 H 192.16499 v 26.901969 c 0,0 -32.03411,-14.237983 -59.62682,-12.72484 -22.34188,1.2252 -54.779359,9.72634 -54.779359,9.72634 0,0 -22.029534,3.62882 -34.471238,-1.88988 -12.441702,-5.51871 -11.67199,-22.013589 -11.67199,-22.013589 z" />
+              <path style="fill:#5C95FF;" d="M 18.441597,78.106256 H 198.58126 v 39.288614 c 0,0 -43.10672,-27.825245 -73.47599,-19.687823 -30.369264,8.137423 -46.832208,12.548653 -46.832208,12.548653 0,0 -32.775418,8.05972 -46.735258,0 C 17.577964,102.19598 18.441597,78.106256 18.441597,78.106256 Z" />
+          </g>
+      </svg>
+
+      <div class='project'>
+
+        <div class='project-content'>
+
+          <h1>Project Enervate</h1>
+
+            <p><strong>Aim:</strong> Develop a neural network to do arithmetic operations</p>
+            <p><strong>Technology Used:</strong> Python, OpenCV2, Google Colaboratory, Pandas, PyTorch, Convolution Neural Networks</p>
+            <p><strong>Accuracy:</strong> ~ 96% - 100%</p>
+            <p><strong>Dataset Source:</strong> Augmented Data From The Infamous MNIST Dataset</p>
+            <p>This was a post hello world project modification I made so as to enhance my skills and just pass time. Training on the MNIST
+               dataset was quite easy however due to the challenge of overfitting the problem got compounded to data augmentation to increase
+               the variety by over 5 folds. After long hours of training the model was able to recognize handwritten digits and operators.
+               Then it was simple a matter of image processing to extract the region of interest, recognize the expression and do arithmetic.</p>
+            <p>Maybe this project can be expanded to perform algebraic computation... [Just A Thought]</p>
+
+        </div>
+
+        <img src='./Projects/Enervate.png' alt='Working Of The Project'>
+
+      </div>
+
+    </section>
+
+    <div class='contact-bar'>
+
+      <p>Email: aryankumarjha2007@gmail.com</p>
+
+      <p>Mobile No: +91 7014135418</p>
+
+      <p>Location: Abu Dhabi, UAE</p>
+
+    </div>
+
+  </body>
+
+</html>
