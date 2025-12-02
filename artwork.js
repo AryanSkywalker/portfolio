@@ -1,11 +1,5 @@
 const artworkImages = [
-  "starry_night.webp",
-  "fall_roman_empire.jpeg",
-  "napolean.jpg",
-  "odyssseus.jpg",
-  "gladiator.jpg",
-  "algren.jpg"
-
+  "rebecca.JPG",
 ];
 
 function assignArtworkImages(imagePaths = artworkImages, className = 'card__img', baseUrl = './artwork/') {
