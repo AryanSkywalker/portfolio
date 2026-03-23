@@ -9,7 +9,6 @@
 * {
 
   box-sizing: border-box;
-  /*font-family: 'Noto Sans', sans-serif;*/
 
 }
 
@@ -18,7 +17,6 @@ body {
 
   min-height: 100vh;
   background-color: #5C95FF;
-  /*background-image: linear-gradient(270deg, #B9E6FF, #5C95FF);*/
   background-repeat: no-repeat;
   margin: 0px;
 
@@ -67,6 +65,8 @@ body {
   display: table;
 
 }
+
+/* ===================== TOP BAR ===================== */
 
 .topBar {
 
@@ -142,6 +142,8 @@ body {
 
 }
 
+/* ===================== PORTFOLIO HERO ===================== */
+
 .portfolio {
 
   font-family: 'Noto Sans', sans-serif;
@@ -200,6 +202,8 @@ body {
 
 }
 
+/* ===================== COMM LINKS ===================== */
+
 .comm {
 
   display: flex;
@@ -241,6 +245,8 @@ body {
 
 }
 
+/* ===================== CONTAINERS ===================== */
+
 .container {
 
   font-family: 'Lato', sans-serif;
@@ -271,7 +277,6 @@ body {
   color: #046262;
   display: flex;
   flex-direction: row;
-
 
 }
 
@@ -335,6 +340,8 @@ body {
   padding: 0 2.5vw;
 
 }
+
+/* ===================== DIVIDERS ===================== */
 
 .divider {
 
@@ -406,6 +413,8 @@ body {
   }
 }
 
+/* ===================== SECTIONS ===================== */
+
 section {
     height: auto;
     min-height: 400px;
@@ -422,10 +431,6 @@ section {
     bottom: 0;
 }
 
-/*#five .section-title {
-    padding-bottom:2.5em;
-}*/
-
 .colorone {
 
   background-color: #5C95FF;
@@ -437,6 +442,8 @@ section {
   background-color: #B9D2B1 ;
 
 }
+
+/* ===================== PROJECT SHOWCASE ===================== */
 
 .project-showcase {
 
@@ -510,6 +517,8 @@ section {
 
 }
 
+/* ===================== CONTACT BAR ===================== */
+
 .contact-bar {
 
   display: flex;
@@ -528,6 +537,8 @@ section {
   color: rgba(245, 245, 247, 0.5);
 
 }
+
+/* ===================== ART SHOWCASE ===================== */
 
 .art-showcase {
 
@@ -580,6 +591,507 @@ section {
   opacity: 20%;
 
 }
+
+/* ===================== BLOG ===================== */
+
+.blog {
+  display: flex;
+  flex-direction: column;
+  padding: 0 2.5vw;
+  padding-top: 5vw;
+  font-family: 'Lato', sans-serif;
+  padding-bottom: 2.5vw;
+  color: #00487C;
+
+}
+
+.blog h1 {
+  font-size: 7.5vw;
+  margin: 0;
+
+}
+
+.blog p {
+  font-size: 2vw;
+  margin: 0;
+
+}
+
+.blog a {
+
+  color: #00487C;
+  text-decoration: none;
+  font-size: 2rem;
+  border-radius: 5px;
+  transition: color 0.5s ease;
+  background-color: none;
+  width: 25%;
+  padding: 5px 0;
+
+}
+
+/* ===================== FONT HELPERS ===================== */
+
+.corinthia-regular {
+  font-family: "Corinthia", cursive;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.corinthia-bold {
+  font-family: "Corinthia", cursive;
+  font-weight: 700;
+  font-style: normal;
+}
+
+/* =====================================================================
+   RESPONSIVE: TABLET (iPad / screens ≤ 1024px)
+   ===================================================================== */
+
+@media screen and (max-width: 1024px) {
+
+  /* Top bar */
+  .topBar {
+    height: 60px;
+  }
+
+  .userName p {
+    font-size: 1.4rem;
+  }
+
+  /* Hero */
+  .portfolio {
+    height: auto;
+    flex-direction: column;
+    align-items: center;
+    padding: 2rem 0 1rem;
+  }
+
+  .nameTag {
+    width: 100%;
+    text-align: center;
+    padding: 1rem 4vw;
+  }
+
+  .nameTag h1 {
+    font-size: 4.5rem;
+  }
+
+  .nameTag p {
+    font-size: 1.5rem;
+  }
+
+  .image-container {
+    width: 55%;
+    margin-top: 1.5rem;
+  }
+
+  .portfolio img {
+    width: 100%;
+    height: auto;
+    max-height: 420px;
+    object-fit: cover;
+  }
+
+  /* About text */
+  .container h1 {
+    text-align: center;
+  }
+
+  .container p {
+    font-size: 1rem;
+    line-height: 1.7;
+  }
+
+  /* Skills sections */
+  .container-skill {
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .container-skill .data {
+    width: 100%;
+  }
+
+  .container-skill h1 {
+    text-align: center;
+    font-size: 2rem;
+  }
+
+  .container-skill p {
+    font-size: 1rem;
+    line-height: 1.7;
+    text-align: center;
+  }
+
+  .skills {
+    gap: 0.5rem;
+  }
+
+  .skill p {
+    width: 40%;
+    padding-right: 2vw;
+  }
+
+  .right {
+    padding: 0;
+  }
+
+  /* Project showcase */
+  .project-showcase {
+    flex-direction: column;
+    align-items: center;
+    padding-top: 22vw;
+    gap: 1.5rem;
+  }
+
+  .project-showcase img {
+    width: 85%;
+  }
+
+  .project-showcase-content {
+    width: 90%;
+    margin: 0;
+    padding: 1rem 0 0;
+    border-left: none;
+    border-top: 5px solid #2C2826;
+    align-items: center;
+    text-align: center;
+  }
+
+  .project-showcase-content h1 {
+    font-size: 12vw;
+  }
+
+  .project-showcase-content p {
+    font-size: 1.4rem;
+  }
+
+  .project-showcase-content a {
+    font-size: 1.4rem;
+    width: auto;
+  }
+
+  /* Art showcase */
+  .art-showcase {
+    background-size: cover;
+    background-position: center;
+  }
+
+  .art-showcase h1 {
+    font-size: 10vw;
+    padding: 80px 0 40px;
+  }
+
+  .art-showcase p {
+    font-size: 6vw;
+  }
+
+  .art-showcase a {
+    font-size: 5.5vw;
+  }
+
+  /* Blog */
+  .blog h1 {
+    font-size: 10vw;
+  }
+
+  .blog p {
+    font-size: 3vw;
+  }
+
+  /* Contact bar */
+  .contact-bar {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 1rem 5vw;
+    gap: 0.25rem;
+  }
+
+  .contact-bar p {
+    padding: 0.2rem 0;
+  }
+
+  /* Nav comm links: hide URL text on tablet */
+  .comm p {
+    display: none;
+  }
+
+  .safe p {
+    display: block;
+    font-size: 0.85rem;
+  }
+
+}
+
+/* =====================================================================
+   RESPONSIVE: MOBILE (≤ 640px)
+   ===================================================================== */
+
+@media screen and (max-width: 640px) {
+
+  /* Top bar */
+  .topBar {
+    height: auto;
+    flex-wrap: wrap;
+    padding: 0.5rem 0;
+    gap: 0.25rem;
+  }
+
+  .userName {
+    width: 100%;
+    padding: 0.5rem 1rem;
+    justify-content: flex-start;
+  }
+
+  .userName p {
+    font-size: 1.2rem;
+  }
+
+  /* Nav links row */
+  div[style*='flex-direction:row-reverse'] {
+    width: 100% !important;
+    justify-content: space-around !important;
+    flex-direction: row !important;
+    padding: 0 1rem;
+  }
+
+  .comm {
+    font-size: 0.8rem;
+    flex-direction: column;
+    gap: 2px;
+  }
+
+  .comm p {
+    display: none;
+  }
+
+  .safe p {
+    display: block;
+    font-size: 0.75rem;
+    margin: 0;
+    text-align: center;
+  }
+
+  .icon {
+    height: 20px;
+    margin: 0 0.5rem;
+  }
+
+  /* Hero */
+  .portfolio {
+    padding: 1rem 0;
+  }
+
+  .nameTag {
+    padding: 0.5rem 5vw;
+  }
+
+  .nameTag h1 {
+    font-size: 2.8rem;
+    line-height: 1.1;
+  }
+
+  .nameTag p {
+    font-size: 1rem;
+    margin-top: 0.4rem;
+  }
+
+  .image-container {
+    width: 80%;
+    margin-top: 1.5rem;
+  }
+
+  .portfolio img {
+    max-height: 320px;
+    border-radius: 20% 25%;
+  }
+
+  /* About */
+  .container {
+    padding: 0 5vw;
+    margin: 1.5rem 0;
+  }
+
+  .container h1 {
+    font-size: 1.8rem;
+    text-align: center;
+  }
+
+  .container p {
+    font-size: 0.95rem;
+    line-height: 1.75;
+    text-align: left;
+  }
+
+  /* Skills */
+  .container-skill {
+    padding: 4vw 5vw;
+    gap: 2rem;
+  }
+
+  .container-skill h1 {
+    font-size: 1.8rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .container-skill p {
+    font-size: 0.95rem;
+    line-height: 1.75;
+    text-align: left;
+  }
+
+  .skill {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 4px;
+    margin-bottom: 0.4rem;
+  }
+
+  .skill p {
+    width: 45%;
+    padding-right: 0;
+    font-size: 0.9rem;
+    margin: 0;
+  }
+
+  .skill span {
+    padding: 0 1px;
+  }
+
+  /* Sections */
+  section {
+    min-height: 300px;
+  }
+
+  /* Project showcase */
+  .project-showcase {
+    padding: 30vw 5vw 5vw;
+    gap: 1.5rem;
+  }
+
+  .project-showcase img {
+    width: 100%;
+    border-radius: 2rem;
+  }
+
+  .project-showcase-content {
+    width: 100%;
+    padding-top: 1.25rem;
+  }
+
+  .project-showcase-content h1 {
+    font-size: 15vw;
+  }
+
+  .project-showcase-content p {
+    font-size: 1.1rem;
+  }
+
+  .project-showcase-content a {
+    font-size: 1.2rem;
+    padding: 8px 14px;
+    border-radius: 8px;
+    width: auto;
+  }
+
+  /* Art showcase */
+  .art-showcase {
+    background-size: cover;
+    background-position: center;
+    min-height: 300px;
+  }
+
+  .art-showcase h1 {
+    font-size: 14vw;
+    padding: 60px 5vw 30px;
+    line-height: 1.1;
+  }
+
+  .art-showcase p {
+    font-size: 9vw;
+    padding: 0 5vw;
+  }
+
+  .art-showcase a {
+    font-size: 7.5vw;
+    padding: 8px 5vw;
+  }
+
+  /* Blog */
+  .blog {
+    padding: 8vw 5vw 5vw;
+  }
+
+  .blog h1 {
+    font-size: 13vw;
+    line-height: 1.1;
+    margin-bottom: 0.5rem;
+  }
+
+  .blog p {
+    font-size: 4vw;
+    line-height: 1.6;
+    margin-bottom: 0.4rem;
+  }
+
+  /* Contact bar */
+  .contact-bar {
+    flex-direction: column;
+    align-items: center;
+    padding: 1.25rem 5vw;
+    gap: 0.4rem;
+    text-align: center;
+  }
+
+  .contact-bar p {
+    font-size: 0.85rem;
+    padding: 0;
+  }
+
+  /* Dividers */
+  .divider {
+    margin: 1.5rem auto;
+  }
+
+}
+
+/* =====================================================================
+   RESPONSIVE: SMALL MOBILE (≤ 400px)
+   ===================================================================== */
+
+@media screen and (max-width: 400px) {
+
+  .nameTag h1 {
+    font-size: 2.2rem;
+  }
+
+  .nameTag p {
+    font-size: 0.9rem;
+  }
+
+  .project-showcase-content h1 {
+    font-size: 18vw;
+  }
+
+  .blog h1 {
+    font-size: 15vw;
+  }
+
+  .art-showcase h1 {
+    font-size: 16vw;
+  }
+
+  .skill p {
+    width: 50%;
+  }
+
+}
+
+/* =====================================================================
+   ORIGINAL 1250px BREAKPOINT (preserved + enhanced)
+   ===================================================================== */
 
 @media screen and (max-width: 1250px) {
 
@@ -678,16 +1190,4 @@ section {
 
   }
 
-}
-
-.corinthia-regular {
-  font-family: "Corinthia", cursive;
-  font-weight: 400;
-  font-style: normal;
-}
-
-.corinthia-bold {
-  font-family: "Corinthia", cursive;
-  font-weight: 700;
-  font-style: normal;
 }
