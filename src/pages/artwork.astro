@@ -1,0 +1,17 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import ArtShowcase from '../components/ArtShowcase.astro';
+import ArtworkGallery from '../components/ArtworkGallery.astro';
+import WaveDivider from '../components/WaveDivider.astro';
+---
+
+<BaseLayout title="Artwork" description="Traditional and digital artwork by Aryan Kumar Jha.">
+  <main>
+    <section class="bg-sage">
+      <ArtShowcase quote="Every artist was first an amateur" author="Ralph Waldo Emerson" />
+      <WaveDivider variant="chevron" fill="var(--color-sky)" shadow="var(--color-charcoal)" />
+    </section>
+
+    <ArtworkGallery />
+  </main>
+</BaseLayout>

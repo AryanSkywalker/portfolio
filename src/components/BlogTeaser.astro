@@ -1,0 +1,71 @@
+---
+import Divider from './Divider.astro';
+import { withBase } from '../utils/url';
+---
+
+<div class="blog-teaser">
+  <h2>Hollow Meditations</h2>
+  <Divider />
+  <p>Sometimes I use my brain... obviously for nothing useful. Like the things you come up with in showers.</p>
+  <p>Not as profound as the Pontifex Maximus, but hopefully enough to <a href={withBase('/blog/')}>make you think</a></p>
+</div>
+
+<style>
+  .blog-teaser {
+    display: flex;
+    flex-direction: column;
+    padding: 5vw var(--gutter) var(--gutter);
+    font-family: var(--font-body);
+    color: var(--color-navy);
+  }
+
+  h2 {
+    margin: 0;
+    font-size: 7.5vw;
+  }
+
+  p {
+    margin: 0;
+    font-size: 2vw;
+  }
+
+  a {
+    font-size: 2rem;
+    color: var(--color-navy);
+    text-decoration: none;
+  }
+
+  @media screen and (max-width: 1024px) {
+    h2 {
+      font-size: 10vw;
+    }
+
+    p {
+      font-size: 3vw;
+    }
+  }
+
+  @media screen and (max-width: 640px) {
+    .blog-teaser {
+      padding: 8vw 5vw 5vw;
+    }
+
+    h2 {
+      margin-bottom: 0.5rem;
+      font-size: 13vw;
+      line-height: 1.1;
+    }
+
+    p {
+      margin-bottom: 0.4rem;
+      font-size: 4vw;
+      line-height: 1.6;
+    }
+  }
+
+  @media screen and (max-width: 400px) {
+    h2 {
+      font-size: 15vw;
+    }
+  }
+</style>

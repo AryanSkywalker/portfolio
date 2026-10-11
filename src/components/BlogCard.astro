@@ -1,0 +1,64 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import { Image } from 'astro:assets';
+import { formatDate, isoDate } from '../utils/date';
+import { withBase } from '../utils/url';
+
+interface Props {
+  post: CollectionEntry<'blog'>;
+}
+
+const { post } = Astro.props;
+const { title, date, cover, excerpt } = post.data;
+---
+
+<article class="blog-card">
+  <a href={withBase(`/blog/${post.id}/`)}>
+    <Image src={cover} alt="" width={800} />
+    <header>
+      <h2>{title}</h2>
+      <time datetime={isoDate(date)}>{formatDate(date)}</time>
+    </header>
+    <p>{excerpt}</p>
+  </a>
+</article>
+
+<style>
+  .blog-card {
+    width: 100%;
+    padding: 10px;
+  }
+
+  a {
+    display: block;
+    color: var(--color-navy);
+    text-decoration: none;
+  }
+
+  img {
+    display: block;
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+    transition: opacity 0.3s ease;
+  }
+
+  a:hover img {
+    opacity: 0.85;
+  }
+
+  header {
+    font-family: var(--font-body);
+  }
+
+  h2 {
+    margin: 0.5em 0 0.25em;
+    font-family: var(--font-heading);
+    font-size: 35px;
+  }
+
+  p {
+    font-family: var(--font-heading);
+    font-size: 1rem;
+  }
+</style>

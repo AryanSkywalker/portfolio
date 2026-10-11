@@ -1,0 +1,33 @@
+/* Design tokens — change colours and fonts here, not in components. */
+:root {
+  /* Palette */
+  --color-sky: #5C95FF;
+  --color-sage: #B9D2B1;
+  --color-navy: #00487C;
+  --color-deep-blue: #002B7A;
+  --color-blue-active: #005FA3;
+  --color-midnight: #001829;
+  --color-teal: #046262;
+  --color-teal-dark: #0B5563;
+  --color-ink: #2C2826;
+  --color-charcoal: #343833;
+  --color-light: #E8F1F2;
+  --color-line: #111;
+
+  /* Typography */
+  --font-heading: 'Noto Sans', sans-serif;
+  --font-body: 'Lato', sans-serif;
+  --font-alt: 'Open Sans', sans-serif;
+  --font-script: 'Corinthia', cursive;
+  --font-card: 'Poppins', sans-serif;
+
+  /* Layout */
+  --gutter: 2.5vw;
+  --topbar-height: 75px;
+}
+
+@media screen and (max-width: 1024px) {
+  :root {
+    --topbar-height: 60px;
+  }
+}

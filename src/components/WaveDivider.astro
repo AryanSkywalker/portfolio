@@ -1,0 +1,75 @@
+---
+// Decorative SVG edge drawn at the top of a section. `fill` should match the
+// background of the section above so it reads as that section flowing down;
+// `shadow` (where the shape supports it) is the darker layer behind it.
+type Variant = 'wave' | 'chevron' | 'arc' | 'peaks' | 'curve';
+
+interface Props {
+  variant: Variant;
+  fill: string;
+  shadow?: string;
+}
+
+const shapes: Record<
+  Variant,
+  { viewBox: string; height?: number; transform?: string; shadowPath?: string; path: string }
+> = {
+  wave: {
+    viewBox: '0.1 0.1 180 40',
+    height: 120,
+    transform: 'translate(-18.298844,-77.973964)',
+    shadowPath:
+      'M 31.615583,86.351641 H 192.16499 v 26.901969 c 0,0 -32.03411,-14.237983 -59.62682,-12.72484 -22.34188,1.2252 -54.779359,9.72634 -54.779359,9.72634 0,0 -22.029534,3.62882 -34.471238,-1.88988 -12.441702,-5.51871 -11.67199,-22.013589 -11.67199,-22.013589 z',
+    path: 'M 18.441597,78.106256 H 198.58126 v 39.288614 c 0,0 -43.10672,-27.825245 -73.47599,-19.687823 -30.369264,8.137423 -46.832208,12.548653 -46.832208,12.548653 0,0 -32.775418,8.05972 -46.735258,0 C 17.577964,102.19598 18.441597,78.106256 18.441597,78.106256 Z',
+  },
+  chevron: {
+    viewBox: '0.4 0.2 200 44',
+    height: 166.61502,
+    transform: 'translate(-9.2218046,-83.494585)',
+    shadowPath: 'M 9.484815,89.716055 H 209.81018 V 126.90507 L 110.46368,93.705147 9.579391,127.39334 Z',
+    path: 'M 9.3544335,83.626877 H 209.68181 V 120.29057 L 110.46368,93.705147 9.4490103,120.77195 Z',
+  },
+  arc: {
+    viewBox: '0.1 0.3 200 19',
+    height: 90,
+    transform: 'translate(-0.21755166,-100.15454)',
+    path: 'M 0.2688579,100.29477 H 200.98548 c 0,0 -99.37375,39.84098 -200.7166221,0 z',
+  },
+  peaks: {
+    viewBox: '0.5 0.2 176 30',
+    height: 140,
+    transform: 'translate(-13.668562,-111.38266)',
+    path: 'M 13.898015,111.51495 H 190.83044 v 26.19241 l -45.97036,-14.43255 -42.22858,7.48354 -45.970361,-14.96709 -31.003265,16.03617 z',
+  },
+  curve: {
+    viewBox: '0 0 1000 100',
+    path: 'M0 0v100-79.4a1892 1892 0 0 1 500 0l500 66.7V0H0Z',
+  },
+};
+
+const { variant, fill, shadow } = Astro.props;
+const shape = shapes[variant];
+---
+
+<svg
+  class="wave-divider"
+  xmlns="http://www.w3.org/2000/svg"
+  width="100%"
+  height={shape.height}
+  viewBox={shape.viewBox}
+  preserveAspectRatio={shape.height ? 'none' : undefined}
+  aria-hidden="true"
+>
+  <g transform={shape.transform}>
+    {shape.shadowPath && shadow && <path fill={shadow} d={shape.shadowPath} />}
+    <path fill={fill} d={shape.path} />
+  </g>
+</svg>
+
+<style>
+  .wave-divider {
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+</style>

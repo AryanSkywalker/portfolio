@@ -1,0 +1,147 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Hero from '../components/Hero.astro';
+import Divider from '../components/Divider.astro';
+import SkillBlock from '../components/SkillBlock.astro';
+import WaveDivider from '../components/WaveDivider.astro';
+import ProjectShowcase from '../components/ProjectShowcase.astro';
+import ArtShowcase from '../components/ArtShowcase.astro';
+import BlogTeaser from '../components/BlogTeaser.astro';
+import { skills } from '../data/skills';
+import { withBase } from '../utils/url';
+---
+
+<BaseLayout>
+  <main>
+    <section>
+      <Hero />
+
+      <div class="about">
+        <h2>About Me</h2>
+        <p>
+          Hey there! I'm Aryan and I live in Jaipur. I've been programming since I was about 9. I've learned HTML, CSS,
+          JavaScript, and Python. I've made many projects using these languages. In fact, this portfolio was made with
+          vanilla HTML, CSS, and JavaScript. My aim is to delve into the field of data science using Python and innovate
+          solutions to problems. I have a GitHub page that showcases most of my Python projects in machine learning.
+          Apart from programming, I also draw a lot. I've been sketching since I was a kid and I also have an Instagram
+          page for my artwork. I love to play football. My favorite player is Lionel Messi, probably the most agile
+          dribbler in the history of humanity. I'm also a huge Star Wars fan. I'm in college right now. I'm studying
+          B.Tech in Energy Sciences and Engineering at IIT Delhi - Abu Dhabi. I wish to use my skills to make a positive
+          impact on other people's lives and solve global issues. This portfolio is still incomplete but do check it out.
+        </p>
+      </div>
+
+      <Divider reverse />
+
+      <SkillBlock title="Programmer At Heart..." skills={skills.programming}>
+        <p>
+          I have a deep passion for programming and I've been coding for 7 years now. When I was but a child, my dad
+          bought me and my brother an iPad (2nd generation). I used to play a lot of games on that thing. It started out
+          as an interest in understanding how video games like God of War, Uncharted, and Angry Birds were created. When
+          we moved to Jaipur, my dad bought a PC and my brother introduced me to HTML for developing websites. After that
+          I was hooked. In my free time, I'd learn HTML tags, CSS rules and slowly I moved on to JavaScript. I developed
+          some websites really just for fun. Then I moved on to real programming and started out with Python. I learned
+          mainly through YouTube and other sites rather than books or teachers. I explored a lot in Python, and developed
+          an understanding of modules like OpenCV2, NumPy, Pandas, and Matplotlib. I got interested in machine learning
+          and then I took a course on Deep Learning from IIT Madras. Since then I've been making 'projects' in Python for
+          fun. That's about it and I wish to learn a lot more down the line. Right now, I've been trying to master
+          programming much closer to low-level using C and C++. My favorite language has to be C++.
+        </p>
+      </SkillBlock>
+
+      <Divider />
+
+      <SkillBlock title="Artist For Life..." skills={skills.art} reverse>
+        <p>
+          Since I was quite young, I loved drawing. I would fill pages upon pages with scribbles and sketches and even
+          today I feel the best way to pass time when I'm bored is to draw. I even had a small phase when I wanted to
+          become a concept artist! I learnt how to draw digitally and I have an instagram page for showcasing my artwork.
+          I've done a few courses on Udemy for both traditional and digital art. Though I don't use post anymore [Life
+          caught up to me]. I still draw in my free time and I feel I'm quite good at it. I believe art is a way to escape
+          the hectic life one leads and everybody should, even mildly, draw to ease off stress.
+        </p>
+      </SkillBlock>
+
+      <Divider reverse />
+
+      <SkillBlock title="Love all and the beautiful game" skills={skills.football}>
+        <p>
+          There are two sports I particularly enjoy, Badminton and Football. Both I love very much, though I'm no Lin Dan
+          or Messi. On the other hand, I'll probably lose every ball or point and still have the wickedness to show up
+          again on the ground. I think you can a lot about life from the games you play, and I'll never let playing not
+          be an option to make friends or get out of my own mind.
+        </p>
+      </SkillBlock>
+    </section>
+
+    <section class="bg-sage">
+      <WaveDivider variant="wave" fill="var(--color-sky)" shadow="var(--color-deep-blue)" />
+      <ProjectShowcase />
+    </section>
+
+    <section class="bg-sky">
+      <WaveDivider variant="chevron" fill="var(--color-sage)" shadow="var(--color-charcoal)" />
+      <ArtShowcase
+        quote="I would like to paint the way a bird sings"
+        author="Claude Monet"
+        link={{ href: withBase('/artwork/'), label: 'You can take a look at my artworks too' }}
+      />
+    </section>
+
+    <section class="bg-sky">
+      <WaveDivider variant="curve" fill="var(--color-deep-blue)" />
+      <BlogTeaser />
+    </section>
+  </main>
+</BaseLayout>
+
+<style>
+  .about {
+    margin: var(--gutter) 0;
+    padding: 0 var(--gutter);
+    font-family: var(--font-body);
+    color: var(--color-teal);
+  }
+
+  .about h2 {
+    margin: 0;
+    font-family: var(--font-heading);
+    font-size: 2em;
+  }
+
+  .about p {
+    margin: 0;
+    text-align: justify;
+  }
+
+  @media screen and (max-width: 1250px) {
+    .about h2,
+    .about p {
+      text-align: center;
+    }
+  }
+
+  @media screen and (max-width: 1024px) {
+    .about p {
+      font-size: 1rem;
+      line-height: 1.7;
+    }
+  }
+
+  @media screen and (max-width: 640px) {
+    .about {
+      margin: 1.5rem 0;
+      padding: 0 5vw;
+    }
+
+    .about h2 {
+      font-size: 1.8rem;
+    }
+
+    .about p {
+      font-size: 0.95rem;
+      line-height: 1.75;
+      text-align: left;
+    }
+  }
+</style>

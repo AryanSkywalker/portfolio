@@ -1,0 +1,40 @@
+---
+import '../styles/global.css';
+import TopBar from '../components/TopBar.astro';
+import ContactBar from '../components/ContactBar.astro';
+import { site } from '../data/site';
+import { withBase } from '../utils/url';
+
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const { title, description = site.description } = Astro.props;
+const pageTitle = title ? `${site.name} | ${title}` : `${site.name} | Portfolio`;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{pageTitle}</title>
+    <meta name="description" content={description} />
+    <meta property="og:title" content={pageTitle} />
+    <meta property="og:description" content={description} />
+    <link rel="icon" href={withBase('/favicon.png')} type="image/png" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Corinthia:wght@400;700&family=Lato:wght@300&family=Noto+Sans:wght@700&family=Open+Sans&family=Poppins:wght@400;500&display=swap"
+    />
+  </head>
+  <body>
+    <TopBar />
+    <slot />
+    <ContactBar />
+  </body>
+</html>

@@ -1,0 +1,53 @@
+---
+// Thin rule with a dash that slides across; `reverse` slides right-to-left.
+interface Props {
+  reverse?: boolean;
+}
+
+const { reverse = false } = Astro.props;
+---
+
+<hr class:list={['divider', { reverse }]} />
+
+<style>
+  .divider {
+    position: relative;
+    display: block;
+    width: 100%;
+    height: 1px;
+    margin: 2.4rem auto;
+    border: 0;
+    overflow: hidden;
+    background: rgba(1, 15, 30, 0.05);
+  }
+
+  .divider::before {
+    content: '';
+    position: absolute;
+    display: block;
+    width: 80px;
+    height: 1px;
+    background: var(--color-line);
+    animation: slide 2s ease infinite;
+  }
+
+  .reverse::before {
+    animation-name: slide-reverse;
+  }
+
+  @keyframes slide {
+    from { transform: translateX(0); }
+    to { transform: translateX(1440px); }
+  }
+
+  @keyframes slide-reverse {
+    from { transform: translateX(1440px); }
+    to { transform: translateX(0); }
+  }
+
+  @media screen and (max-width: 640px) {
+    .divider {
+      margin: 1.5rem auto;
+    }
+  }
+</style>
