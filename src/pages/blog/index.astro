@@ -1,0 +1,51 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import BlogCard from '../../components/BlogCard.astro';
+import { getPosts } from '../../utils/posts';
+
+const posts = await getPosts();
+---
+
+<BaseLayout title="Hollow Meditations" description="Hollow Meditations — shower thoughts and essays by Aryan Kumar Jha.">
+  <main>
+    <h1>Hollow Meditations</h1>
+    <div class="grid">
+      {posts.map((post) => <BlogCard post={post} />)}
+    </div>
+  </main>
+</BaseLayout>
+
+<style>
+  main {
+    padding: 0 var(--gutter);
+  }
+
+  h1 {
+    margin: 2rem 0 1rem;
+    font-family: var(--font-heading);
+    font-size: 4rem;
+    color: var(--color-navy);
+  }
+
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    align-items: start;
+  }
+
+  @media screen and (max-width: 1024px) {
+    .grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media screen and (max-width: 640px) {
+    h1 {
+      font-size: 2.5rem;
+    }
+
+    .grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

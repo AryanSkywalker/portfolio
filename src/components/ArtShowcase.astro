@@ -1,0 +1,116 @@
+---
+import { getImage } from 'astro:assets';
+import colosseum from '../assets/images/colosseum.jpg';
+
+interface Props {
+  quote: string;
+  author: string;
+  link?: { href: string; label: string };
+}
+
+const { quote, author, link } = Astro.props;
+const background = await getImage({ src: colosseum, width: 1800, format: 'webp' });
+---
+
+<div class="art-showcase" style={`--art-bg: url(${background.src})`}>
+  <h2>Painting by the fire</h2>
+  <blockquote>
+    <p>''{quote}''</p>
+    <p>- {author}</p>
+  </blockquote>
+  {link && <a href={link.href}>{link.label}</a>}
+</div>
+
+<style>
+  .art-showcase {
+    display: flex;
+    flex-direction: column;
+    background: var(--art-bg) no-repeat;
+    background-size: 100%;
+    font-family: var(--font-body);
+    color: var(--color-light);
+    text-align: center;
+  }
+
+  h2 {
+    margin: 0;
+    padding: 100px 0;
+    font-size: 7.5vw;
+  }
+
+  blockquote {
+    margin: 0;
+  }
+
+  p,
+  a {
+    font-family: var(--font-script);
+    font-weight: 700;
+  }
+
+  p {
+    margin: 0;
+    font-size: 4.5vw;
+  }
+
+  a {
+    display: block;
+    padding: 5px 0;
+    font-size: 4vw;
+    color: var(--color-light);
+    text-decoration: none;
+    transition: opacity 1s ease;
+  }
+
+  a:hover {
+    opacity: 20%;
+  }
+
+  @media screen and (max-width: 1024px) {
+    .art-showcase {
+      background-size: cover;
+      background-position: center;
+    }
+
+    h2 {
+      padding: 80px 0 40px;
+      font-size: 10vw;
+    }
+
+    p {
+      font-size: 6vw;
+    }
+
+    a {
+      font-size: 5.5vw;
+    }
+  }
+
+  @media screen and (max-width: 640px) {
+    .art-showcase {
+      min-height: 300px;
+    }
+
+    h2 {
+      padding: 60px 5vw 30px;
+      font-size: 14vw;
+      line-height: 1.1;
+    }
+
+    p {
+      padding: 0 5vw;
+      font-size: 9vw;
+    }
+
+    a {
+      padding: 8px 5vw;
+      font-size: 7.5vw;
+    }
+  }
+
+  @media screen and (max-width: 400px) {
+    h2 {
+      font-size: 16vw;
+    }
+  }
+</style>

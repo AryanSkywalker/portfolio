@@ -1,0 +1,67 @@
+@import './tokens.css';
+@import './vendor/starwars-glyphicons.css';
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  min-height: 100vh;
+  margin: 0;
+  background-color: var(--color-sky);
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+section {
+  position: relative;
+  min-height: 400px;
+}
+
+.bg-sky {
+  background-color: var(--color-sky);
+}
+
+.bg-sage {
+  background-color: var(--color-sage);
+}
+
+/* Animated underline used on nav links */
+.hover-underline {
+  display: inline-block;
+  position: relative;
+}
+
+.hover-underline::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 35%;
+  height: 5px;
+  border-radius: 5px;
+  background-color: var(--color-midnight);
+  transform: scaleX(0);
+  transform-origin: bottom left;
+  transition: transform 0.25s ease-out;
+}
+
+.hover-underline:hover::after {
+  transform: scaleX(1);
+  transform-origin: bottom right;
+}
+
+@media screen and (max-width: 640px) {
+  section {
+    min-height: 300px;
+  }
+}

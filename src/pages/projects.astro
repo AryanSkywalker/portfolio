@@ -1,0 +1,77 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import ProjectCard from '../components/ProjectCard.astro';
+import WaveDivider from '../components/WaveDivider.astro';
+
+const projects = (await getCollection('projects')).sort((a, b) => a.data.order - b.data.order);
+
+// Sections alternate sky/sage; each divider takes the colour of the section above it.
+const backgrounds = ['var(--color-sky)', 'var(--color-sage)'];
+const dividers = ['arc', 'peaks', 'wave'] as const;
+---
+
+<BaseLayout title="Projects" description="Machine learning and computer vision projects by Aryan Kumar Jha.">
+  <nav class="navigator" aria-label="Jump to project">
+    {
+      projects.map((project) => (
+        <a href={`#${project.id}`} aria-label={project.data.title}>
+          <span class="swg swg-decals-1 swg-2x" aria-hidden="true" />
+        </a>
+      ))
+    }
+  </nav>
+
+  <main>
+    {
+      projects.map((project, i) => (
+        <section id={project.id} class:list={['project-section', i % 2 ? 'bg-sage' : 'bg-sky']}>
+          {i > 0 && (
+            <WaveDivider
+              variant={dividers[(i - 1) % dividers.length]}
+              fill={backgrounds[(i - 1) % 2]}
+              shadow="var(--color-charcoal)"
+            />
+          )}
+          <ProjectCard project={project} />
+        </section>
+      ))
+    }
+  </main>
+</BaseLayout>
+
+<style>
+  .navigator {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 30px;
+    height: 100%;
+    background-color: var(--color-sky);
+    opacity: 75%;
+  }
+
+  .navigator span {
+    padding: 1.5vw 0;
+    color: var(--color-ink);
+  }
+
+  .project-section {
+    scroll-margin-top: var(--topbar-height);
+  }
+
+  .project-section + .project-section {
+    padding-top: 7.5vw;
+  }
+
+  @media screen and (max-width: 1250px) {
+    .project-section + .project-section {
+      padding-top: 20vw;
+    }
+  }
+</style>

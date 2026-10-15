@@ -1,0 +1,91 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import { Image } from 'astro:assets';
+import { render } from 'astro:content';
+
+interface Props {
+  project: CollectionEntry<'projects'>;
+}
+
+const { project } = Astro.props;
+const { title, aim, tech, accuracy, dataset, image, imageAlt, portrait } = project.data;
+const { Content } = await render(project);
+---
+
+<article class="project">
+  <div class="content">
+    <h2>{title}</h2>
+    <p><strong>Aim:</strong> {aim}</p>
+    <p><strong>Technology Used:</strong> {tech.join(', ')}</p>
+    <p><strong>Accuracy:</strong> {accuracy}</p>
+    {dataset && <p><strong>Dataset Source:</strong> {dataset}</p>}
+    <Content />
+  </div>
+
+  <Image src={image} alt={imageAlt} width={1366} class:list={{ portrait }} />
+</article>
+
+<style>
+  .project {
+    display: flex;
+    min-height: 75vh;
+    padding: 0 var(--gutter);
+  }
+
+  .content {
+    width: 50%;
+    font-family: var(--font-body);
+  }
+
+  h2 {
+    margin: 0;
+    font-size: 4rem;
+    color: var(--color-navy);
+  }
+
+  .content :global(p) {
+    font-size: 1.25rem;
+    color: var(--color-ink);
+  }
+
+  img {
+    max-width: 50%;
+    max-height: 100%;
+    margin: auto;
+    border-radius: 25px;
+    transition: box-shadow 2s ease;
+  }
+
+  img.portrait {
+    width: auto;
+    height: 30vw;
+  }
+
+  img:hover {
+    box-shadow: 0 4px 8px 0 rgb(0 0 0 / 20%), 0 6px 20px 0 rgb(0 0 0 / 19%);
+  }
+
+  @media screen and (max-width: 1250px) {
+    .project {
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .content {
+      width: 100%;
+    }
+
+    h2 {
+      text-align: center;
+    }
+
+    .content :global(p) {
+      text-align: left;
+    }
+
+    img {
+      max-width: 100%;
+    }
+  }
+</style>

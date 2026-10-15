@@ -1,0 +1,184 @@
+---
+import type { Skill } from '../data/skills';
+
+interface Props {
+  title: string;
+  skills: Skill[];
+  /** Put the text on the left and the ratings on the right. */
+  reverse?: boolean;
+}
+
+const MAX_LEVEL = 5;
+const { title, skills, reverse = false } = Astro.props;
+---
+
+<div class:list={['skill-block', { reverse }]}>
+  <ul class="skills">
+    {
+      skills.map(({ name, level }) => (
+        <li class="skill">
+          <strong class="skill-name">{name}</strong>
+          <span class="visually-hidden">
+            {level} out of {MAX_LEVEL}
+          </span>
+          {Array.from({ length: MAX_LEVEL }, (_, i) => (
+            <span class:list={['swg swg-reball swg-lg', { disabled: i >= level }]} aria-hidden="true" />
+          ))}
+        </li>
+      ))
+    }
+  </ul>
+
+  <div class="text">
+    <h2>{title}</h2>
+    <slot />
+  </div>
+</div>
+
+<style>
+  .skill-block {
+    display: flex;
+    padding: var(--gutter);
+    font-family: var(--font-body);
+    color: var(--color-teal);
+  }
+
+  .reverse {
+    flex-direction: row-reverse;
+  }
+
+  .skills,
+  .text {
+    width: 50%;
+  }
+
+  .skills {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .reverse .skills {
+    padding: 0 var(--gutter);
+  }
+
+  .skill-name {
+    display: inline-block;
+    width: 30%;
+    padding-right: 5vw;
+  }
+
+  .swg {
+    padding: 0 0.25vw;
+  }
+
+  .disabled {
+    color: var(--color-teal-dark);
+    opacity: 25%;
+  }
+
+  h2 {
+    margin: 0;
+    font-family: var(--font-heading);
+    font-size: 2em;
+  }
+
+  .text :global(p) {
+    margin: 0;
+    text-align: justify;
+  }
+
+  .visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    white-space: nowrap;
+  }
+
+  @media screen and (max-width: 1024px) {
+    .skill-block {
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+
+    .reverse {
+      flex-direction: column-reverse;
+    }
+
+    .skills,
+    .text {
+      width: 100%;
+    }
+
+    .skills {
+      gap: 0.5rem;
+    }
+
+    .reverse .skills {
+      padding: 0;
+    }
+
+    .skill-name {
+      width: 40%;
+      padding-right: 2vw;
+    }
+
+    h2 {
+      font-size: 2rem;
+      text-align: center;
+    }
+
+    .text :global(p) {
+      font-size: 1rem;
+      line-height: 1.7;
+      text-align: center;
+    }
+  }
+
+  @media screen and (max-width: 640px) {
+    .skill-block {
+      gap: 2rem;
+      padding: 4vw 5vw;
+    }
+
+    .skill {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 4px;
+      margin-bottom: 0.4rem;
+    }
+
+    .skill-name {
+      width: 45%;
+      padding-right: 0;
+      font-size: 0.9rem;
+    }
+
+    .swg {
+      padding: 0 1px;
+    }
+
+    h2 {
+      margin-bottom: 0.5rem;
+      font-size: 1.8rem;
+    }
+
+    .text :global(p) {
+      font-size: 0.95rem;
+      line-height: 1.75;
+      text-align: left;
+    }
+  }
+
+  @media screen and (max-width: 400px) {
+    .skill-name {
+      width: 50%;
+    }
+  }
+</style>
