@@ -1,9 +1,10 @@
 // @ts-check
 import { defineConfig } from 'astro/config';
 
-// If the site is deployed under a sub-path (e.g. GitHub Pages at
-// username.github.io/portfolio), set `base: '/portfolio'` here.
-// All internal links go through `withBase()` so nothing else needs to change.
+// Hosted on GitHub Pages as a project site, so everything lives under /portfolio/.
+// All internal links go through `withBase()`, so changing `base` here is enough
+// if the site ever moves (e.g. to a custom domain, where base would be '/').
 export default defineConfig({
-  // site: 'https://your-domain.com',
+  site: 'https://aryanskywalker.github.io',
+  base: '/portfolio',
 });
