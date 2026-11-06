@@ -1,5 +1,6 @@
 // @ts-check
 import { defineConfig } from 'astro/config';
+import sitemap from '@astrojs/sitemap';
 
 // Hosted on GitHub Pages as a project site, so everything lives under /portfolio/.
 // All internal links go through `withBase()`, so changing `base` here is enough
@@ -7,4 +8,5 @@ import { defineConfig } from 'astro/config';
 export default defineConfig({
   site: 'https://aryanskywalker.github.io',
   base: '/portfolio',
+  integrations: [sitemap()],
 });

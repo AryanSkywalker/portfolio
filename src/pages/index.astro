@@ -9,9 +9,20 @@ import ArtShowcase from '../components/ArtShowcase.astro';
 import BlogTeaser from '../components/BlogTeaser.astro';
 import { skills } from '../data/skills';
 import { withBase } from '../utils/url';
+import { getImage } from 'astro:assets';
+import portrait from '../assets/images/hero.jpg';
+import { site } from '../data/site';
+import { absoluteUrl, personId, personSchema } from '../utils/seo';
+
+const homeUrl = absoluteUrl(withBase('/'), Astro.site);
+const portraitImage = await getImage({ src: portrait, width: 800, format: 'jpg' });
+const structuredData = [
+  { '@type': 'WebSite', '@id': `${homeUrl}#website`, url: homeUrl, name: site.name, publisher: { '@id': personId(homeUrl) } },
+  personSchema(homeUrl, absoluteUrl(portraitImage.src, Astro.site)),
+];
 ---
 
-<BaseLayout>
+<BaseLayout structuredData={structuredData}>
   <main>
     <section>
       <Hero />
