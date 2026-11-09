@@ -65,5 +65,10 @@ copied untouched.
 
 ## Deploying
 
-Run `npm run build` and upload `dist/`. If the site lives under a sub-path
+Pushes to `main` build and deploy automatically via `.github/workflows/deploy.yml`
+(repo Settings → Pages → Source must be set to **GitHub Actions**). The site is served at
+https://aryanskywalker.github.io/portfolio/ — if it moves to a custom domain, change `site` and
+`base` in `astro.config.mjs`.
+
+To deploy elsewhere, run `npm run build` and upload `dist/`. If the site lives under a sub-path
 (e.g. `username.github.io/portfolio`), set `base` in `astro.config.mjs`.

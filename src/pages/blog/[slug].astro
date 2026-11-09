@@ -6,6 +6,9 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import { getPosts } from '../../utils/posts';
 import { formatDate, isoDate } from '../../utils/date';
 import { withBase } from '../../utils/url';
+import { getImage } from 'astro:assets';
+import { site } from '../../data/site';
+import { absoluteUrl, personId } from '../../utils/seo';
 
 export const getStaticPaths = (async () => {
   const posts = await getPosts();
@@ -15,9 +18,30 @@ export const getStaticPaths = (async () => {
 const { post } = Astro.props;
 const { title, date, cover, excerpt } = post.data;
 const { Content } = await render(post);
+
+const coverImage = await getImage({ src: cover, width: 1200, format: 'jpg' });
+const homeUrl = absoluteUrl(withBase('/'), Astro.site);
+const structuredData = [
+  {
+    '@type': 'BlogPosting',
+    headline: title,
+    description: excerpt,
+    datePublished: date.toISOString(),
+    image: absoluteUrl(coverImage.src, Astro.site),
+    url: absoluteUrl(Astro.url.pathname, Astro.site),
+    author: { '@type': 'Person', '@id': personId(homeUrl), name: site.name, url: homeUrl },
+  },
+];
 ---
 
-<BaseLayout title={title} description={excerpt}>
+<BaseLayout
+  title={title}
+  description={excerpt}
+  image={cover}
+  type="article"
+  publishedTime={date}
+  structuredData={structuredData}
+>
   <main>
     <article class="post">
       <a class="back" href={withBase('/blog/')}>&larr; All posts</a>
