@@ -3,8 +3,13 @@ export const site = {
   name: 'Aryan Kumar Jha',
   handle: 'aryanSkywalker',
   tagline: 'Programmer  /  Artist  / Star Wars Fan',
+  // Search engines show the title and description in results; keep them specific
+  // so this site isn't mistaken for the many other people sharing the name.
+  title: 'Aryan Kumar Jha — Programmer & Artist | IIT Delhi Abu Dhabi',
   description:
-    'Portfolio of Aryan Kumar Jha — programmer, artist and Star Wars fan. Projects, artwork and writing.',
+    'Aryan Kumar Jha (aryanSkywalker) is a B.Tech Energy Sciences and Engineering student at IIT Delhi – Abu Dhabi who builds machine learning and computer vision projects, draws, and writes.',
+  affiliation: 'Indian Institute of Technology Delhi – Abu Dhabi',
+  knowsAbout: ['Python', 'C++', 'Machine Learning', 'Computer Vision', 'Deep Learning', 'Drawing', 'Digital Art'],
   resume: { href: '/resume.pdf', downloadName: 'The Chosen One' },
   socials: {
     github: { label: 'https://github.com/AryanSkywalker', href: 'https://github.com/AryanSkywalker' },

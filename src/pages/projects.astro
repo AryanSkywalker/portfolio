@@ -5,13 +5,16 @@ import ProjectCard from '../components/ProjectCard.astro';
 import WaveDivider from '../components/WaveDivider.astro';
 
 const projects = (await getCollection('projects')).sort((a, b) => a.data.order - b.data.order);
+const description = `Machine learning and computer vision projects by Aryan Kumar Jha: ${projects
+  .map((project) => project.data.title)
+  .join(', ')}.`;
 
 // Sections alternate sky/sage; each divider takes the colour of the section above it.
 const backgrounds = ['var(--color-sky)', 'var(--color-sage)'];
 const dividers = ['arc', 'peaks', 'wave'] as const;
 ---
 
-<BaseLayout title="Projects" description="Machine learning and computer vision projects by Aryan Kumar Jha.">
+<BaseLayout title="Projects" description={description}>
   <nav class="navigator" aria-label="Jump to project">
     {
       projects.map((project) => (
